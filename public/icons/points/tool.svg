@@ -1,0 +1,15 @@
+<svg width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle opacity="0.1" cx="46" cy="46" r="46" fill="#ED1FD6" fill-opacity="0.27"/>
+<circle opacity="0.1" cx="45.9999" cy="45.9999" r="40.3673" fill="#ED1FD6" fill-opacity="0.3"/>
+<ellipse opacity="0.1" cx="46.9385" cy="46.0002" rx="33.7959" ry="32.8571" fill="#ED1FD6" fill-opacity="0.34"/>
+<ellipse opacity="0.5" cx="46.939" cy="45.9999" rx="26.2857" ry="27.2245" fill="url(#paint0_linear_403_15731)"/>
+<path d="M33.5759 60.07C31.5654 60.194 29.4777 59.32 27.8381 57.7633C36.0736 57.771 34.5035 47.6845 26.2861 51.1066C27.411 46.9768 31.065 45.3412 34.9992 46.1989C37.0802 46.6509 38.3157 47.0287 40.2814 46.1316L47.2699 42.6711C50.9963 40.8836 50.2823 34.1913 56.5464 33.8077C58.5569 33.6827 60.6417 34.5586 62.2852 36.1144C54.0488 36.1057 55.6188 46.1922 63.8372 42.7701C62.7123 46.8999 59.0574 48.5354 55.1241 47.6778C53.3977 47.2989 52.0755 46.5316 49.5626 47.7614L42.9573 51.1162C41.6484 51.8123 41.2061 52.2681 40.4787 53.5585C38.6989 56.7152 37.7828 59.8113 33.5759 60.07Z" fill="white"/>
+<defs>
+<linearGradient id="paint0_linear_403_15731" x1="77.2302" y1="60.4743" x2="13.3948" y2="53.1573" gradientUnits="userSpaceOnUse">
+<stop stop-color="#6A2EFF"/>
+<stop offset="0.32" stop-color="#371A80" stop-opacity="0.937255"/>
+<stop offset="0.745" stop-color="#811374"/>
+<stop offset="1" stop-color="#ED1FD6"/>
+</linearGradient>
+</defs>
+</svg>
