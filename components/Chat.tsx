@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { userInput } from "@/actions/chatAi";
+import MessageTime from "./MessageTime";
 
 type Message = {
   role: "user" | "assistant" | "system";
@@ -171,13 +172,7 @@ Feel free to share your project details, and I'll guide you from there! 😊
                 `}
               >
                 <p className="leading-[20px] !text-[#e2e2e2]" dangerouslySetInnerHTML={{ __html: message.content }}/>
-                <p className={`text-[10px] !text-[#bebebe]`}>
-                  {new Date(message.createdAt).toLocaleTimeString('en-US', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: true,
-                  })}
-                </p>
+                <MessageTime createdAt={message.createdAt}/>
               </div>
             ))}
             {/** Loading the bot message add typing */}
