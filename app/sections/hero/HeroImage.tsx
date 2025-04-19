@@ -18,8 +18,9 @@ export default function HeorImage() {
         alt="hero image" 
         src={'/images/heroImage.jpg'}
         width={1000}
-        height={600}
+        height={616}
         priority
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1000px"
         className="
           w-full h-full max-h-[500px] object-contain object-right
         "
