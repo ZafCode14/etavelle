@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
+import Link from 'next/link';
 
 const lighthouse = ["Performance", "Accessibility", "Best Practices", "SEO"];
 
@@ -33,7 +34,7 @@ function LighthouseIndicator({ label }: { label: string }) {
   }, [inView]);
 
   return (
-    <div ref={ref} className="flex flex-col items-center">
+    <Link href={'https://pagespeed.web.dev/analysis/https-etavelle-com/raflh4y2p5?form_factor=mobile'} target='_blank' ref={ref} className="flex flex-col items-center">
       <div className="relative h-13 w-13 bg-[#67bb6546] rounded-full">
         {/* Background Circle */}
         <div className="absolute inset-0 rounded-full border-4 md:border-2 border-gray-300" />
@@ -67,6 +68,6 @@ function LighthouseIndicator({ label }: { label: string }) {
         </motion.p>
       </div>
       <p className="!text-xs md:!text-md mt-2 font-bold">{label}</p>
-    </div>
+    </Link>
   );
 }
