@@ -146,7 +146,7 @@ Feel free to share your project details, and I'll guide you from there! 😊
         w-full max-w-full
         flex justify-end 
         transition-all duration-300
-        h-[800px] max-h-full z-20
+        h-full md:max-h-[90%] z-20
       `}>
         {/** Chat Container */}
         <div onClick={(e) => e.stopPropagation()} className={`
@@ -175,8 +175,8 @@ Feel free to share your project details, and I'll guide you from there! 😊
                   mb-1 rounded-md px-3 py-1
                   max-w-[80%] 
                   ${message.role === "assistant" 
-                    ? "self-start bg-[#2B9AA7]" 
-                    : "self-end bg-[#B946AC]"
+                    ? "self-start bg-[#177a85]" 
+                    : "self-end bg-[#99318d]"
                   }
                 `}
               >

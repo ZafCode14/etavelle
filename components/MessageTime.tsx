@@ -12,5 +12,5 @@ export default function MessageTime({ createdAt }: { createdAt: number }) {
     setLocalTime(formatted);
   }, [createdAt]);
 
-  return <p className={`text-[10px] !text-[#bebebe]`}>{localTime}</p>;
+  return <p className={`!text-[10px] !text-[#ffffff]`}>{localTime}</p>;
 }
