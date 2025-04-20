@@ -12,7 +12,16 @@ const mulish = Mulish({
 
 export const metadata: Metadata = {
   title: "Etavelle",
-  description: "Etavelle offers expert web development services...",
+  description: "At Etavelle, we design lightning-fast, SEO-driven websites built to rank higher, convert better, and scale effortlessly.",
+  keywords: [
+    "Etavelle", 
+    "High Performance Web Development",
+    "SEO Optimized Websites",
+    "Conversion Focused Websites",
+    "Next.js Web Development",
+    "UX/UI Design",
+    "Website Performance Optimization"
+  ],
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -26,9 +35,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <meta name="description" content="This is description"/>
-      </head>
       <body className={mulish.className} suppressHydrationWarning>
         <Header />
         {children}

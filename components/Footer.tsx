@@ -20,24 +20,35 @@ export default function Footer() {
               height={40}
               className="object-contain w-10 h-10"
             />
-            <span className="text-lg font-semibold">Etavelle</span>
+            <span className="text-lg font-semibold">ETAVELLE</span>
           </div>
           <p className="text-sm">
             At Etavelle, we design lightning-fast, SEO-driven websites built to rank higher, convert better, and scale effortlessly.
           </p>
           <div className="flex space-x-2 pt-2">
-            {/* Replace with actual social icons */}
-            {["/icons/logos/linkedin.svg", "/icons/logos/whatsapp.svg"].map((icon, idx) => (
-              <Button key={idx} variant="outline" className="rounded-full w-11 h-11 p-2 border-transparent bg-transparent">
+            {/* social icons */}
+            <Link href={'https://www.linkedin.com/company/etavelle'} target="_blank">
+              <Button variant="outline" className="rounded-full w-11 h-11 p-2 border-transparent bg-transparent">
                 <Image
-                  src={icon}
+                  src={"/icons/logos/linkedin.svg"}
                   alt="Social Icon"
                   width={32}
                   height={32}
                   className="object-contain hover:opacity-80 transition"
                 />
               </Button>
-            ))}
+            </Link>
+            <Link href={"https://wa.me/201221112378?text=Hi%20Etavelle%2C%20I%E2%80%99m%20interested%20in%20your%20web%20services"} target="_blank">
+              <Button variant="outline" className="rounded-full w-11 h-11 p-2 border-transparent bg-transparent">
+                <Image
+                  src={"/icons/logos/whatsapp.svg"}
+                  alt="Social Icon"
+                  width={32}
+                  height={32}
+                  className="object-contain hover:opacity-80 transition"
+                />
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -70,7 +81,7 @@ export default function Footer() {
           <hr className="border border-black mb-5 w-[100px]" />
           <div className="flex items-center space-x-2 text-sm">
             <Phone className="text-black w-5 h-5"/>
-            <span>+2012212378</span>
+            <span>+201221112378</span>
           </div>
           <div className="flex items-center space-x-2 text-sm">
             <Mail className="text-black w-5 h-5"/>

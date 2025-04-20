@@ -8,34 +8,35 @@ export default function Services(){
     {
       icon: "/icons/services/webDevelopment.svg",
       title: "Web Development",
-      text: "Our web development team builds responsive, mobile-first websites optimized for user experience and search engine performance. We ensure clean, scalable code that delivers seamless functionality and fast load times."
+      text: "We build fast, scalable websites using modern frameworks like Next.js, ensuring clean code, responsive layouts, and top-tier performance. Every project is optimized for SEO, usability, and future scalability."
     },
     {
       icon: "/icons/services/seoOptimization.svg",
       title: "SEO Optimization",
-      text: "We create intuitive, visually appealing user interfaces and user experiences that engage visitors and enhance usability, ensuring that your site is both attractive and easy to navigate."
+      text: "We optimize your website from the ground up — improving on-page SEO, technical structure, page speed, and keyword relevance to boost your visibility and rankings on Google and other search engines."
     },
     {
       icon: "/icons/services/maintenanceSupport.svg",
       title: "Maintenance & Support",
-      text: "Our web development team builds responsive, mobile-first websites optimized for user experience and search engine performance. We ensure clean, scalable code that delivers seamless functionality and fast load times."
+      text: "We provide ongoing website maintenance, security updates, bug fixes, and performance monitoring to ensure your site remains fast, secure, and fully functional after launch."
     },
     {
       icon: "/icons/services/uiuxDesign.svg",
       title: "UX/UI Design",
-      text: "We create intuitive, visually appealing user interfaces and user experiences that engage visitors and enhance usability, ensuring that your site is both attractive and easy to navigate."
+      text: "We craft clean, modern user interfaces that prioritize user behavior and business goals. Our design approach ensures intuitive navigation, high engagement, and seamless brand consistency."
     },
     {
       icon: "/icons/services/appDevelopment.svg",
       title: "App Development",
-      text: "We specialize in high-performance mobile app development, delivering seamless functionality on Android and iOS platforms tailored to your business needs."
+      text: "We develop custom mobile and web apps for iOS, Android, and cross-platform use. Each solution is tailored for performance, scalability, and user-centric design aligned with your business goals."
     },
     {
       icon: "/icons/services/hosting.svg",
       title: "Hosting Solutions",
-      text: "We specialize in high-performance mobile app development, delivering seamless functionality on Android and iOS platforms tailored to your business needs."
-    },
-  ]
+      text: "We offer fast, secure, and scalable hosting tailored for modern websites and applications — including deployment, monitoring, uptime management, and CDN integration for maximum performance."
+    }
+  ];
+
   return (
     <section className="py-20 overflow-hidden px-3" id="services">
       <GraphicalElement 

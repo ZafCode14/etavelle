@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { userInput } from "@/actions/chatAi";
 import MessageTime from "./MessageTime";
+import { Button } from "./ui/button";
 
 type Message = {
   role: "user" | "assistant" | "system";
@@ -83,15 +84,31 @@ Feel free to share your project details, and I'll guide you from there! 😊
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Disable scrolling when chat is open
   useEffect(() => {
-    if (showChat) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    // Check the window width
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        if (showChat) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "";
+        }
+      } else {
+        // Reset overflow if the screen is smaller than 768px
+        document.body.style.overflow = "";
+      }
+    };
 
+    // Initial check
+    handleResize();
+
+    // Add resize event listener to check on window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
     return () => {
+      window.removeEventListener("resize", handleResize);
+      // Reset overflow on cleanup
       document.body.style.overflow = "";
     };
   }, [showChat]);
@@ -100,26 +117,18 @@ Feel free to share your project details, and I'll guide you from there! 😊
     <div className={`flex items-end`}>
       {/** Show Hide Chat button */}
       <>
-        <button onClick={() => {setShowChat(true); setNewMessage(0)}} className={`
-          fixed bottom-10 right-10 z-20
-          flex justify-center items-center
-          w-[50px] h-[50px] rounded-full
-          bg-gradient-6
-        `}>
-          <div className={`
-            flex justify-center items-center
-            w-[45px] h-[45px] rounded-full
-          bg-[#050322] p-1
-          `}>
-            <Image
-              alt="chat logo"
-              src="/icons/logos/bot.svg"
-              width={0}
-              height={0}
-              className="w-[70%] h-[70%]"
-            />
-          </div>
-        </button>
+        <Button onClick={() => {setShowChat(true); setNewMessage(0)}} className="
+        fixed bottom-10 right-10 z-20
+        w-[50px] h-[50px] rounded-full p-2
+        ">
+          <Image
+            alt="chat logo"
+            src="/icons/logos/bot.svg"
+            width={0}
+            height={0}
+            className="w-full h-full"
+          />
+        </Button>
         {/** New Message */}
         { newMessage !== 0 &&
           <p onClick={() => {setShowChat(true)}} className={`
@@ -137,27 +146,27 @@ Feel free to share your project details, and I'll guide you from there! 😊
         w-full max-w-full
         flex justify-end 
         transition-all duration-300
-        min-h-[100dvh] z-20
+        h-[800px] max-h-full z-20
       `}>
         {/** Chat Container */}
         <div onClick={(e) => e.stopPropagation()} className={`
-          relative
+          relative md:right-5 md:bottom-5
           flex flex-col justify-end 
-        bg-[white]
+          md:rounded-xl overflow-hidden
           w-[450px] max-w-full
         `}>
 
           {/** Chat header Container */}
           <div className={`
             absolute top-0 left-0 h-[70px] w-full flex justify-center items-center
-            bg-[#050322] !text-[#f3f3f3]
+            bg-[#021230] !text-[#f3f3f3]
           `}>
             <p onClick={() => setShowChat(false)} className={`absolute left-10 cursor-pointer !text-[#e2e2e2]`}>X</p>
             <p className="!text-[#e2e2e2]">Customer Support</p>
           </div>
 
           {/** Messeges container */}
-          <div onClick={(e) => e.stopPropagation()} className="w-full px-5 flex flex-col items-center flex-grow overflow-y-auto pt-2 bg-[#e6e6e6] mt-[70px] h-[0]">
+          <div onClick={(e) => e.stopPropagation()} className="w-full px-5 flex flex-col items-center flex-grow overflow-y-auto pt-2 bg-[#dde7ec8a] mt-[70px] h-[0] backdrop-blur-md">
             { /** Loop throught the Messages */
             messages.map((message, index) => (
               <div 
@@ -166,12 +175,12 @@ Feel free to share your project details, and I'll guide you from there! 😊
                   mb-1 rounded-md px-3 py-1
                   max-w-[80%] 
                   ${message.role === "assistant" 
-                    ? "self-start bg-[#114163]" 
-                    : "self-end bg-[#6e236e]"
+                    ? "self-start bg-[#2B9AA7]" 
+                    : "self-end bg-[#B946AC]"
                   }
                 `}
               >
-                <p className="leading-[20px] !text-[#e2e2e2]" dangerouslySetInnerHTML={{ __html: message.content }}/>
+                <p className="leading-[20px] !text-[#ffffff]" dangerouslySetInnerHTML={{ __html: message.content }}/>
                 <MessageTime createdAt={message.createdAt}/>
               </div>
             ))}
@@ -184,13 +193,13 @@ Feel free to share your project details, and I'll guide you from there! 😊
           {/** Input / button container */}
           <form 
           onSubmit={(e) => {e.preventDefault(); handleSubmit()}}
-          className="flex w-full px-3 bg-[#050322] border-t border-[#161744] py-4">
+          className="flex w-full px-3 bg-[#021230] py-4">
             <textarea
               value={value}
               id="messageAi"
               onChange={onChange}
               placeholder="Enter question here"
-              className="rounded-[10px] px-3 pt-2 flex-1 bg-[#404463] !text-[white] flex items-center max-h-[100px] overflow-y-auto resize-none"
+              className="rounded-[10px] px-3 pt-2 flex-1 bg-[#2f4b57] !text-[white] flex items-center max-h-[100px] overflow-y-auto resize-none"
               rows={1}
               style={{
                 height: 'auto',
