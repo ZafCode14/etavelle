@@ -11,8 +11,8 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
-  title: "Etavelle",
-  description: "At Etavelle, we design lightning-fast, SEO-driven websites built to rank higher, convert better, and scale effortlessly.",
+  title: "High-Performance, SEO-Optimized Websites That Convert | Etavelle",
+  description: "We build lightning-fast, SEO-optimized websites that rank higher, convert better, and grow with your brand — powered by Next.js.",
   keywords: [
     "Etavelle", 
     "High Performance Web Development",

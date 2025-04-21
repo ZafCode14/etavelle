@@ -44,10 +44,10 @@ export default function WhyEtavelle() {
       />
       <div className="w-[700px] max-w-full mb-10 relative text-center">
         <AnimateIn y={100}>
-          <h2>Why Etavelle? The Choice of <br/>High-Performance Website Solutions</h2>
+          <h2>Why Choose Etavelle? High-Performance Web Development & SEO Solutions</h2>
         </AnimateIn>
         <AnimateIn y={100}>
-          <p>At Etavelle, we create high-performance websites that drive results and elevate your online presence.</p>
+          <p>At Etavelle, we design high-performance websites that not only elevate your online presence but also drive real results. Our solutions are tailored to boost conversions, SEO rankings, and long-term success.</p>
         </AnimateIn>
       </div>
       <div className="flex justify-center gap-3 flex-wrap relative">

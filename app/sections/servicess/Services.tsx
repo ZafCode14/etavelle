@@ -53,10 +53,10 @@ export default function Services(){
       />
       <div className="w-[700px] max-w-full relative">
         <AnimateIn y={100}>
-          <h2>Our Website Solutions -<br/> Speed & SEO Excellence</h2>
+          <h2>Web Development & SEO Services <br/>for High-Performance Websites</h2>
         </AnimateIn>
         <AnimateIn y={100}>
-          <p>At Etavelle, we focus on combining exceptional UX/UI design with advanced web development, app development, and SEO strategies. Our goal is to create websites and apps that not only look great but also perform exceptionally well, driving conversions and ensuring long-term success.</p>
+          <p>At Etavelle, we deliver high-performance websites and apps with a focus on UX/UI design, web development, and SEO. Our solutions are crafted to improve user experience, drive higher conversions, and ensure long-term growth with top-tier performance and SEO strategies.</p>
         </AnimateIn>
       </div>
 

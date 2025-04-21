@@ -4,6 +4,7 @@ import Image from "next/image";
 import { userInput } from "@/actions/chatAi";
 import MessageTime from "./MessageTime";
 import { Button } from "./ui/button";
+import { X } from "lucide-react";
 
 type Message = {
   role: "user" | "assistant" | "system";
@@ -161,7 +162,7 @@ Feel free to share your project details, and I'll guide you from there! 😊
             absolute top-0 left-0 h-[70px] w-full flex justify-center items-center
             bg-[#021230] !text-[#f3f3f3]
           `}>
-            <p onClick={() => setShowChat(false)} className={`absolute left-10 cursor-pointer !text-[#e2e2e2]`}>X</p>
+            <X onClick={() => setShowChat(false)} className={`absolute left-10 cursor-pointer !text-[#e2e2e2]`}/>
             <p className="!text-[#e2e2e2]">Customer Support</p>
           </div>
 

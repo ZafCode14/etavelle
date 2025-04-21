@@ -23,7 +23,7 @@ export default function Service({ icon, title, text }: Props) {
       `}>
         <Image
           src={icon}
-          alt="service icon"
+          alt={`${title} Icon`}
           width={0}
           height={0}
           className="w-auto h-[40px] lg:h-[3.7vw] xl:h-[44px] absolute left-5 top-4 object-contain"

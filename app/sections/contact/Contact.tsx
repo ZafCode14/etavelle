@@ -53,10 +53,10 @@ export default function Contact() {
     <section className="flex flex-col items-center bg-[#F7F7FD] py-20 rounded-3xl px-3" id="contact">
       <div className="w-[700px] max-w-full mb-10 text-center">
         <AnimateIn y={100}>
-          <h2>Let’s Talk About Your Next Project</h2>
+          <h2>Let’s Bring Your Vision to Life</h2>
         </AnimateIn>
         <AnimateIn y={100}>
-          <p>Have questions or ready to start your website project? Our team at Etavelle is here to help.</p>
+          <p>Have questions or ready to start your high-performance website project? Let’s make your business stand out online with Etavelle’s expert team.</p>
         </AnimateIn>
       </div>
 
