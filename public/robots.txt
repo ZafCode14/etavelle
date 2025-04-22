@@ -1,6 +1,9 @@
-# robots.txt for https://www.etavelle.com
-
+# *
 User-agent: *
 Allow: /
 
+# Host
+Host: https://www.etavelle.com
+
+# Sitemaps
 Sitemap: https://www.etavelle.com/sitemap.xml
