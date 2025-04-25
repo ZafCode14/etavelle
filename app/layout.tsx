@@ -11,17 +11,8 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
-  title: "High-Performance, SEO-Optimized Websites That Convert | Etavelle",
+  title: "Etavelle | High-Performance, SEO-Optimized Websites That Convert",
   description: "We build lightning-fast, SEO-optimized websites that rank higher, convert better, and grow with your brand — powered by Next.js.",
-  keywords: [
-    "Etavelle", 
-    "High Performance Web Development",
-    "SEO Optimized Websites",
-    "Conversion Focused Websites",
-    "Next.js Web Development",
-    "UX/UI Design",
-    "Website Performance Optimization"
-  ],
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },

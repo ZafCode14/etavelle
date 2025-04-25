@@ -23,7 +23,8 @@ h2 {
   margin-bottom: 1rem;
 }
 h3 {
-  font-size: 40px;
+  font-size: 14px;
+  font-weight: bold;
 }
 h4 {
   font-size: 32px;
@@ -44,6 +45,9 @@ p {
   }
   h2 {
     font-size: 34px;
+  }
+  h3 {
+    font-size: 16px;
   }
   p {
     font-size: 16px;

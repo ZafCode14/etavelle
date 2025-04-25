@@ -58,17 +58,17 @@ export default function Footer() {
           <hr className="border border-black w-[100px]" />
           <ul className="space-y-1 text-sm">
               <li>
-                <Link href={`#services`} className="hover:underline">
+                <Link href={`/#services`} className="hover:underline">
                   Our Services
                 </Link>
               </li>
               <li>
-                <Link href={`#projects`} className="hover:underline">
+                <Link href={`/#projects`} className="hover:underline">
                   Our Projects
                 </Link>
               </li>
               <li>
-                <Link href={`#contact`} className="hover:underline">
+                <Link href={`/#contact`} className="hover:underline">
                   Contact Us
                 </Link>
               </li>

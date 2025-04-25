@@ -70,7 +70,7 @@ export default function Projects() {
                       />
                     </div>
                     <div className="p-4 flex flex-col">
-                      <h3 className="!text-[20px] font-bold">{project.title}</h3>
+                      <h3>{project.title}</h3>
                       <a href={project.link} target="_blank" rel="noopener noreferrer" className="self-end mt-5">
                         <Button variant="outline">
                           View Project
