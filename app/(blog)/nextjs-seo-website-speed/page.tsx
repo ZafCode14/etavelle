@@ -150,21 +150,24 @@ export default function WhyNextJs() {
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
-          headline: "Why Next.js Is the Best Framework for SEO and Website Speed",
-          author: {
+          "headline": "Why Next.js Is the Best Framework for SEO and Website Speed",
+          "author": {
             "@type": "Person",
-            name: "Mohamed Elzaafarani",
+            "name": "Mohamed Elzaafarani",
+            "url": "https://www.etavelle.com/"
           },
-          publisher: {
+          "publisher": {
             "@type": "Organization",
-            name: "Etavelle",
-            logo: {
+            "name": "Etavelle",
+            "logo": {
               "@type": "ImageObject",
-              url: "https://www.etavelle.com/favicon.ico",
-            },
+              "url": "https://www.etavelle.com/icons/logo.png",
+              "width": 200,
+              "height": 200
+            }
           },
-          datePublished: "2025-04-23",
-          image: "https://www.etavelle.com/images/blogs/nextjs-seo-website-speed/og.jpg",
+          "datePublished": "2025-04-23T00:00:00Z",
+          "image": "https://www.etavelle.com/images/blogs/nextjs-seo-website-speed/og.jpg"
         })
       }} />
     </main>
