@@ -35,6 +35,7 @@ export default function WhyNextJs() {
         width={1300}
         height={630}
         className="w-[1200px] h-auto object-contain mx-auto rounded-2xl"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
         priority
       />
 
@@ -135,7 +136,7 @@ export default function WhyNextJs() {
       </div>
 
       <div className="mt-14 bg-gray-100 p-6 rounded-xl shadow-sm max-w-3xl mx-auto flex flex-col">
-        <h4 className="!text-xl font-semibold mb-2">Want an SEO-First Website?</h4>
+        <h2 className="!text-xl font-semibold mb-2">Want an SEO-First Website?</h2>
         <p className="mb-4">
           We build <strong>SEO-optimized</strong>, <strong>fast-loading</strong> websites using Next.js for founders, brands, and marketers. Let’s grow your business together.
         </p>
