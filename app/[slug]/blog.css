@@ -31,6 +31,22 @@ p {
 li {
  font-size: 14px;
 }
+.link {
+  color: #0044ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.link:visited {
+  color: #551a8b; /* classic visited purple or brand-aligned shade */
+}
+
+.link:hover {
+  color: #0033cc;
+  text-decoration-color: #0033cc;
+}
 @media (min-width: 768px) {
   h1 {
     font-size: 40px;

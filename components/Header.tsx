@@ -41,14 +41,14 @@ function Header() {
       w-full h-[70px]
       text-black
       transition-colors duration-300 px-3 
-      ${p !== '/nextjs-seo-website-speed' && "backdrop-blur-lg"}
+      ${p === "/" && "backdrop-blur-lg"}
     `}>
       <AnimateIn className="
         flex justify-end items-center 
         md:justify-center 
         w-[1200px] max-w-full relative
       " y={-50}>
-        <Link href="/" className={`
+        <Link href={!p.startsWith('/admin') ? "/" : "/admin"} className={`
           flex items-center 
           ${scrollPercent < 10 ?  "bg-[#e3eef0]" : "bg-[white]"}
           hover:bg-[#d2e0e2] active:bg-[#d2e0e2]
@@ -67,7 +67,7 @@ function Header() {
             priority
           />
         </Link>
-        {p !== "/nextjs-seo-website-speed" &&
+        {p === "/" &&
           <div 
             className={`
               flex justify-center items-center

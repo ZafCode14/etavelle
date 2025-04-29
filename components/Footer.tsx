@@ -1,10 +1,16 @@
+"use client";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import AnimateIn from "./AnimateIn";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const p = usePathname();
+
+  if (p.startsWith('/admin')) return
+
   return (
     <footer className="bg-[#F7F7FD] py-10 px-4 md:px-16 flex flex-col items-center rounded-t-3xl">
 
