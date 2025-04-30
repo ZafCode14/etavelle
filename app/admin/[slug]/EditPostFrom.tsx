@@ -88,7 +88,10 @@ export default function EditPostForm({ post }: Props) {
           title: formData.title,
           description: formData.description,
           slug: formData.slug,
-          hero_image: formData.hero_image,
+          hero_image: {
+            ...post.hero_image,
+            ...formData.hero_image,
+          },
           og_image: formData.og_image,
           content: updatedContent ?? formData.content,
           updated_at: new Date().toISOString(),
@@ -188,7 +191,6 @@ export default function EditPostForm({ post }: Props) {
             value={formData.hero_image?.alt || ""}
             onChange={handleChange}
             name="hero_image.alt"
-            required
           />
         </div>
         }
