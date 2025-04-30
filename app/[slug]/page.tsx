@@ -69,14 +69,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   return (
     <main className="mx-auto px-4 py-10 pt-20 flex flex-col">
+      {post.hero_image.fileUrl &&
       <Image
         src={post.hero_image.fileUrl}
         alt={post.hero_image.alt}
         width={1200}
         height={630}
-        className="my-4 w-full h-auto object-contain rounded-md"
+        className="my-4 w-[1200px] max-w-full h-auto object-contain rounded-md mx-auto"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
       />
+      }
       <article className="max-w-3xl mx-auto flex flex-col">
         <p className="self-end mt-10">
           Published on{" "}
@@ -100,6 +102,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
       <div className="mt-16 border-t pt-8 w-3xl max-w-full flex justify-center mx-auto">
         <div className="flex items-center gap-4 w-full">
+          <Image
+            alt="authors image"
+            src="/images/clients/photo.jpg"
+            width={100}
+            height={100}
+            className="w-15 h-15 rounded-full"
+          />
           <div>
             <p className="text-sm font-semibold">Written by</p>
             <p className="text-base font-bold">{post.user.name}</p>

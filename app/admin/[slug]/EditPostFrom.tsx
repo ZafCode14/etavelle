@@ -2,17 +2,17 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Content, Post } from "@/lib/types";
 import { createClient } from "@/utils/supabase/client";
-import { Plus} from "lucide-react";
 import { useState } from "react";
 import AddAndDeleteImage from "../handleImages/AddAndDeleteImage";
 import { addHeroImageToPost, addOgImageToPost } from "../handleImages/actions";
 import Image from "next/image";
 import ContentBlock from "./ContentBlock";
 import ActivateBlog from "./ActivateBlog";
+import AddNewBlock from "./AddNewBlock";
+import GenerateH2s from "./AI/GenerateH2s";
 
 type Props = {
   post: Post;
@@ -31,7 +31,6 @@ export default function EditPostForm({ post }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
-  const [selectedBlockType, setSelectedBlockType] = useState("");
 
   const supabase = createClient();
 
@@ -125,7 +124,7 @@ export default function EditPostForm({ post }: Props) {
           isActive={post.active}
         />
       </div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-6 max-w-4xl  mx-auto">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-4xl  max-w-full mx-auto">
         <div className="flex flex-col gap-2">
           <Label htmlFor="slug">Slug</Label>
           <Input
@@ -141,15 +140,19 @@ export default function EditPostForm({ post }: Props) {
 
         <div className="flex flex-col gap-2">
           <Label htmlFor="title">Title</Label>
-          <Input
-            id="title"
-            type="text"
-            placeholder="Post Title"
-            value={formData.title}
-            onChange={handleChange}
-            name="title"
-            required
-          />
+          <div className="flex">
+            <Input
+              id="title"
+              type="text"
+              placeholder="Post Title"
+              value={formData.title}
+              onChange={handleChange}
+              name="title"
+              required
+              className="mr-5"
+            />
+            <GenerateH2s title={formData.title} setFormData={setFormData}/>
+          </div>
         </div>
 
         <div className="flex flex-col gap-2">
@@ -217,39 +220,11 @@ export default function EditPostForm({ post }: Props) {
           />
         ))}
 
-        <div className="flex items-center gap-2 mx-auto">
-          <Select 
-            value={selectedBlockType}
-            onValueChange={(value) => {
-              const newBlock = {
-                type: value as "h1" | "h2" | "h3" | "p" | "ul" | "ol" | "image",
-                value: "",
-              };
+        {formData.content?.length === 0 &&
+        <AddNewBlock setFormData={setFormData} index={0}/>
+        }
 
-              setFormData(prev => ({
-                ...prev,
-                content: [...(prev.content || []), newBlock],
-              }));
-
-              setSelectedBlockType("");
-            }}
-          >
-            <SelectTrigger className="cursor-pointer">
-              <Plus />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="h1" className="cursor-pointer">h1</SelectItem>
-              <SelectItem value="h2" className="cursor-pointer">h2</SelectItem>
-              <SelectItem value="h3" className="cursor-pointer">h3</SelectItem>
-              <SelectItem value="p" className="cursor-pointer">p</SelectItem>
-              <SelectItem value="ul" className="cursor-pointer">ul</SelectItem>
-              <SelectItem value="ol" className="cursor-pointer">ol</SelectItem>
-              <SelectItem value="image" className="cursor-pointer">image</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        <Button type="submit" disabled={loading}>
+        <Button type="submit" disabled={loading} className="fixed bottom-5 right-5">
           {loading ? "Saving..." : "Save Changes"}
         </Button>
 

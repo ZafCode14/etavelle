@@ -5,6 +5,7 @@ import { userInput } from "@/actions/chatAi";
 import MessageTime from "./MessageTime";
 import { Button } from "./ui/button";
 import { X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 type Message = {
   role: "user" | "assistant" | "system";
@@ -28,6 +29,8 @@ Feel free to share your project details, and I'll guide you from there! 😊
   const [showChat, setShowChat] = useState<boolean>(false);
   const [newMessage, setNewMessage] = useState<number>(1);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+  const p = usePathname();
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
     setValue(e.target.value);
@@ -113,6 +116,8 @@ Feel free to share your project details, and I'll guide you from there! 😊
       document.body.style.overflow = "";
     };
   }, [showChat]);
+
+  if (p.startsWith('/admin')) return;
 
   return (
     <div className={`flex items-end`}>

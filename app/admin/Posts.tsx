@@ -27,7 +27,6 @@ export default async function Posts() {
             </div>
             <h3 className='text-gray-400'>{post.slug}</h3>
             <h2 className='!mb-0'>{post.title}</h2>
-            <h3 className='text-gray-400'>{post.user.name}</h3>
           </Link>
         ))}
       </div>

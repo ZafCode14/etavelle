@@ -6,6 +6,8 @@ import AddAndDeleteImage from "../handleImages/AddAndDeleteImage";
 import Image from "next/image";
 import { Content, Post } from "@/lib/types";
 import { handleDelete } from "@/lib/r2storage";
+import AddNewBlock from "./AddNewBlock";
+import GenerateFromH2 from "./AI/GenerateFromH2";
 
 type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -71,8 +73,11 @@ export default function ContentBlock({ block, formData, savePost, setFormData, i
   };
 
   return (
-    <div className="flex flex-col gap-4 border rounded-xl p-4 relative">
+    <div className="flex flex-col gap-4 border rounded-xl p-4 relative my-4 bg-[#f3f3f3]">
       <div className="absolute top-2 right-2 flex gap-1">
+        {block.type === "h2" &&
+          <GenerateFromH2 h2={block.value} setFormData={setFormData} index={index}/>
+        }
         <Button
           variant="outline"
           size="icon"
@@ -110,6 +115,7 @@ export default function ContentBlock({ block, formData, savePost, setFormData, i
           value={typeof block.value === "string" ? block.value : ""}
           onChange={(e) => handleChange({...e, target: { ...e.target, name: "value" }}, index)}
           name="value"
+          className="bg-[white]"
         />
       ) : block.type === "p" || block.type === "ul" || block.type === "ol" ? (
         <Textarea
@@ -117,6 +123,7 @@ export default function ContentBlock({ block, formData, savePost, setFormData, i
           value={typeof block.value === "string" ? block.value : ""}
           onChange={(e) => handleChange({...e, target: { ...e.target, name: "value" }}, index)}
           name="value"
+          className="bg-[white]"
           rows={block.type === "p" ? 4 : 6}
         />
       ) : (
@@ -152,6 +159,9 @@ export default function ContentBlock({ block, formData, savePost, setFormData, i
           }
         </>
       )}
+      <div className="absolute w-full flex justify-center -bottom-12">
+        <AddNewBlock setFormData={setFormData} index={index}/>
+      </div>
     </div>
   );
 }
