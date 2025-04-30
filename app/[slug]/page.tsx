@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: "Etavelle",
       images: [
         {
-          url: post.ogImage,
+          url: post.og_image.fileUrl,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -110,9 +110,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             className="w-15 h-15 rounded-full"
           />
           <div>
-            <p className="text-sm font-semibold">Written by</p>
-            <p className="text-base font-bold">{post.user.name}</p>
-            <p className="text-sm">{post.user.role}</p>
+            <p className="text-sm font-semibold !my-0">Written by</p>
+            <p className="text-base font-bold !my-0">{post.user.name}</p>
+            <p className="text-sm !my-0">{post.user.role}</p>
           </div>
           <Link href={post.user.url} className="flex-1 flex justify-center">
             <Button variant="outline">

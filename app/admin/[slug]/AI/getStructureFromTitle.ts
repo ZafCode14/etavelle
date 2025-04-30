@@ -73,7 +73,6 @@ export async function getStructureFromTitle(input: string) {
     if (!toolCalls.length) throw new Error("No structured output from AI");
 
     const parsed = JSON.parse(toolCalls[0].function.arguments);
-    console.log("parsed: ", parsed);
     return parsed.headings;
   } catch (error) {
     console.error(error);

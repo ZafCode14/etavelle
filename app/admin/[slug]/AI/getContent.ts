@@ -81,11 +81,7 @@ export async function getContentFromFormData(input: string) {
     const toolCalls: ToolCall[] = response.choices[0]?.message.tool_calls || [];
     if (!toolCalls.length) throw new Error("No structured output from AI");
 
-    console.log(input);
-    console.log(toolCalls);
-
     const parsed = JSON.parse(toolCalls[0].function.arguments);
-    console.log("parsed: ", parsed);
     return parsed.content;
   } catch (error) {
     console.error(error);
