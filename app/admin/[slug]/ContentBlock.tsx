@@ -72,11 +72,13 @@ export default function ContentBlock({ block, formData, savePost, setFormData, i
     await savePost(updatedContent);
   };
 
+  const allH2s = formData.content?.filter((block) => block.type === "h2");
+
   return (
     <div className="flex flex-col gap-4 border rounded-xl p-4 relative my-4 bg-[#f3f3f3]">
       <div className="absolute top-2 right-2 flex gap-1">
         {block.type === "h2" &&
-          <GenerateFromH2 h2={block.value} setFormData={setFormData} index={index}/>
+          <GenerateFromH2 allH2s={allH2s} h2={block.value} setFormData={setFormData} index={index}/>
         }
         <Button
           variant="outline"

@@ -3,7 +3,6 @@ import { Mulish } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
-import Chat from "@/components/Chat";
 
 const mulish = Mulish({
   subsets: ["latin"],
@@ -29,7 +28,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={mulish.className} suppressHydrationWarning>
         <Header />
         {children}
+        {/**
+         * 
         <Chat />
+         */}
         <Footer />
       </body>
     </html>
