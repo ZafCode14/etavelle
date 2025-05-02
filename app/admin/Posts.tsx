@@ -14,8 +14,6 @@ export default async function Posts() {
     return <div>Failed to load posts.</div>;
   }
 
-  console.log('Fetched posts:', posts);
-
   return (
     <div className="p-5">
       <h1 className="text-2xl font-bold mb-4">Posts</h1>
