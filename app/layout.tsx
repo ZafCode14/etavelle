@@ -19,6 +19,22 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
+  openGraph: {
+    title: "Etavelle | High-Performance, SEO-Optimized Websites That Convert",
+    description: "We build lightning-fast, SEO-optimized websites that rank higher, convert better, and grow with your brand — powered by Next.js.",
+    url: "https://www.etavelle.com",
+    siteName: "Etavelle",
+    images: [
+      {
+        url: "https://www.etavelle.com/images/ogHome.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Etavelle - High-Performance Websites",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
   manifest: "/site.webmanifest",
 };
 
