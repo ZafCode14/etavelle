@@ -1,9 +1,4 @@
-# *
 User-agent: *
-Allow: /
+Disallow:
 
-# Host
-Host: https://www.etavelle.com
-
-# Sitemaps
-Sitemap: https://www.etavelle.com/sitemap.xml
+Sitemap: https://www.etavelle.com/api/sitemap
