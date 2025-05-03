@@ -6,7 +6,7 @@ export async function getAllSlugs() {
 
   const { data, error } = await supabase
     .from('posts') // Replace with your table name
-    .select('slug')
+    .select('slug, updated_at')
     .eq('active', true); // Assuming there's an "active" column for published posts
 
   if (error) {
@@ -15,5 +15,5 @@ export async function getAllSlugs() {
   }
 
   // Return the array of slugs
-  return data.map(post => post.slug); // map the result to an array of slugs
+  return data.map(post => post); // map the result to an array of slugs
 }
