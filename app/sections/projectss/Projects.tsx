@@ -69,7 +69,7 @@ export default function Projects() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="p-4 flex flex-col">
+                    <div className="p-4 flex items-center justify-between">
                       <h3>{project.title}</h3>
                       <a href={project.link} target="_blank" rel="noopener noreferrer" className="self-end mt-5">
                         <Button variant="outline">

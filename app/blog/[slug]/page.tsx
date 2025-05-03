@@ -3,18 +3,16 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
-import "./blog.css";
-import { createClient } from "@/utils/supabase/server";
 import Block from "./Block";
 import { Content } from "@/lib/types";
 import Image from "next/image";
+import { supabaseAnonymous } from "@/utils/supabase/anonymous";
+import { ArrowLeft } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const prms = await params;
 
-  const supabase = await createClient();
-
-  const { data: post, error } = await supabase
+  const { data: post, error } = await supabaseAnonymous
     .from('posts')
     .select('*, user:users(*)')
     .eq('slug', prms.slug)
@@ -51,9 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const prms = await params;
 
-  const supabase = await createClient();
-
-  const { data: post, error } = await supabase
+  const { data: post, error } = await supabaseAnonymous
     .from('posts')
     .select('*, user:users(*)')
     .eq('slug', prms.slug)
@@ -69,6 +65,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   return (
     <main className="mx-auto px-4 py-10 pt-20 flex flex-col">
+      <Link href={'/blog'}>
+        <Button variant="ghost" className="rounded-full h-10 w-10">
+          <ArrowLeft/>
+        </Button>
+      </Link>
       {post.hero_image.fileUrl &&
       <Image
         src={post.hero_image.fileUrl}

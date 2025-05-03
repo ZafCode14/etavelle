@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-function Header() {
+export default function Header() {
   const [scrollPercent, setScrollPercent] = useState(0);
   const p = usePathname();
 
@@ -80,22 +80,27 @@ function Header() {
             }}
           >
             <Link href="/#services" className={`
-              ${style} rounded-l-full px-5
+              ${style} rounded-l-full md:px-5
+              text-[12px] md:text-[16px]
               ${scrollPercent >= 10 && scrollPercent < 50 ?  "bg-[#e3eef0]" : "bg-[white]"}
               `}>Services</Link>
             <Link href="/#projects" className={`
-              ${style} px-5
+              ${style} md:px-5
+              text-[12px] md:text-[16px]
               ${scrollPercent >= 50 && scrollPercent < 70 ?  "bg-[#e3eef0]" : "bg-[white]"}
             `}>Projects</Link>
             <Link href="/#contact" className={`
-              ${style} rounded-r-full px-5
+              text-[12px] md:text-[16px]
+              ${style} md:px-5
               ${scrollPercent >= 70 ?  "bg-[#e3eef0]" : "bg-[white]"}
             `}>Contact</Link>
+            <Link href="/blog" className={`
+              text-[12px] md:text-[16px]
+              ${style} rounded-r-full md:px-5
+            `}>blog</Link>
           </div>
         }
       </AnimateIn>
     </header>
   );
 }
-
-export default Header;
