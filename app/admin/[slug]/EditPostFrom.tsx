@@ -13,6 +13,7 @@ import ContentBlock from "./ContentBlock";
 import ActivateBlog from "./ActivateBlog";
 import AddNewBlock from "./AddNewBlock";
 import GenerateH2s from "./AI/GenerateH2s";
+import GenerateH1 from "./AI/GenerateH1";
 
 type Props = {
   post: Post;
@@ -143,7 +144,7 @@ export default function EditPostForm({ post }: Props) {
 
         <div className="flex flex-col gap-2">
           <Label htmlFor="title">Title</Label>
-          <div className="flex">
+          <div className="flex flex-col md:flex-row">
             <Input
               id="title"
               type="text"
@@ -154,7 +155,10 @@ export default function EditPostForm({ post }: Props) {
               required
               className="mr-5"
             />
-            <GenerateH2s title={formData.title} setFormData={setFormData}/>
+            <div className="flex">
+              <GenerateH1 title={formData.title} setFormData={setFormData}/>
+              <GenerateH2s title={formData.title} setFormData={setFormData}/>
+            </div>
           </div>
         </div>
 

@@ -1,9 +1,9 @@
 // app/blog/page.tsx
 import Link from 'next/link'
 import './blog.css'
-import { supabaseAnonymous } from '@/utils/supabase/anonymous'
 import Image from 'next/image'
 import { Metadata } from 'next';
+import { createClient } from '@/utils/supabase/server';
 
 export const metadata: Metadata = {
   title: "Blog | Etavelle – SEO & Performance-Focused Web Development",
@@ -37,7 +37,9 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  const { data: posts, error } = await supabaseAnonymous
+  const supabase = await createClient();
+
+  const { data: posts, error } = await supabase
     .from('posts')
     .select('slug, title, description, created_at')
     .order('created_at', { ascending: false })

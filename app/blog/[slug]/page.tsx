@@ -6,14 +6,15 @@ import { Metadata } from "next";
 import Block from "./Block";
 import { Content } from "@/lib/types";
 import Image from "next/image";
-import { supabaseAnonymous } from "@/utils/supabase/anonymous";
 import { ArrowLeft } from "lucide-react";
 import '../blog.css'
+import { createClient } from "@/utils/supabase/server";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const prms = await params;
 
-  const { data: post, error } = await supabaseAnonymous
+  const supabase = await createClient();
+  const { data: post, error } = await supabase
     .from('posts')
     .select('*, user:users(*)')
     .eq('slug', prms.slug)
@@ -50,7 +51,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const prms = await params;
 
-  const { data: post, error } = await supabaseAnonymous
+  const supabase = await createClient();
+  const { data: post, error } = await supabase
     .from('posts')
     .select('*, user:users(*)')
     .eq('slug', prms.slug)

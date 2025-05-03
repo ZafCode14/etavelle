@@ -1,32 +1,31 @@
 'use client';
-
 import { useTransition } from 'react';
 import { Button } from '@/components/ui/button';
-import { getStructureFromTitle } from './getStructureFromTitle';
 import { Post } from '@/lib/types';
+import { getH1andP } from './getH1andP';
 
 type Props = {
   title: string | undefined;
   setFormData: React.Dispatch<React.SetStateAction<Partial<Post>>>;
 }
-export default function GenerateH2s({ title, setFormData }: Props) {
+export default function GenerateH1({ title, setFormData }: Props) {
   const [isPending, startTransition] = useTransition();
 
   const handleSubmit = () => {
     if (!title) return;
 
     startTransition(async () => {
-      const response = await getStructureFromTitle(title);
+      const response = await getH1andP(title);
       setFormData(prev => ({
         ...prev,
-        content: [...prev.content || [], ...response],
+        content: response,
       }));
     });
   }
 
   return (
-    <Button onClick={handleSubmit} disabled={isPending}>
-      {isPending ? 'Generating...' : 'Generate H2s'}
+    <Button onClick={handleSubmit} disabled={isPending} className='mr-5'>
+      {isPending ? 'Generating...' : 'Generate H1'}
     </Button>
   );
 }
