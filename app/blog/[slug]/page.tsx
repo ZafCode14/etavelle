@@ -8,6 +8,7 @@ import { Content } from "@/lib/types";
 import Image from "next/image";
 import { supabaseAnonymous } from "@/utils/supabase/anonymous";
 import { ArrowLeft } from "lucide-react";
+import '../blog.css'
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const prms = await params;
