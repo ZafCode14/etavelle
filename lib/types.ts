@@ -21,8 +21,8 @@ export type Post = {
   title: string;
   description: string;
   slug: string;
-  updatedAt: string;
-  createdAt: string;
+  updated_at: string;
+  created_at: string;
   id: number;
   hero_image: {
     fileUrl: string;

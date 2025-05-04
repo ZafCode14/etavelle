@@ -93,7 +93,10 @@ export default function EditPostForm({ post }: Props) {
             ...post.hero_image,
             ...formData.hero_image,
           },
-          og_image: formData.og_image,
+          og_image: {
+            ...post.og_image,
+            ...formData.og_image,
+          },
           content: updatedContent ?? formData.content,
           updated_at: new Date().toISOString(),
         })

@@ -1,8 +1,8 @@
 import { createClient } from "@/utils/supabase/server";
 import { notFound } from "next/navigation";
-import EditPostForm from "./EditPostFrom";
+import PostOrForm from "./PostOrForm";
 
-export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+export default async function AdminBlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const supabase = await createClient();
 
   const prms = await params;
@@ -23,7 +23,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   return (
     <main className="mx-auto px-4 py-10 pt-20 flex flex-col">
-      <EditPostForm post={post}/>
+      <PostOrForm post={post}/>
     </main>
   );
 }

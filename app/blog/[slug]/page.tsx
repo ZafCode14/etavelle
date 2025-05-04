@@ -56,6 +56,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     .from('posts')
     .select('*, user:users(*)')
     .eq('slug', prms.slug)
+    .eq('active', true)
     .single();
 
   if (error) {
