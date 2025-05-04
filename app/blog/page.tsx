@@ -42,6 +42,7 @@ export default async function BlogPage() {
   const { data: posts, error } = await supabase
     .from('posts')
     .select('slug, title, description, created_at')
+    .eq('active', true)
     .order('created_at', { ascending: false })
 
   if (error) {
