@@ -8,6 +8,7 @@ export default async function Posts() {
   const { data: posts, error } = await supabase
     .from('posts')
     .select('*, user:users(*)') // Fetch all fields from the 'users' table
+    .order('created_at', { ascending: false })
 
   if (error) {
     console.error('Error fetching posts:', error.message);
