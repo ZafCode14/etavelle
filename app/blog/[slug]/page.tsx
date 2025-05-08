@@ -83,7 +83,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
       />
       }
-      <article className="max-w-3xl mx-auto flex flex-col">
+      <article className="w-3xl max-w-full mx-auto flex flex-col">
         <p className="self-end mt-10">
           Published on{" "}
           <time dateTime={new Date(post.created_at).toISOString()}>
