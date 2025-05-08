@@ -1,4 +1,5 @@
 'use client';
+import { toast } from 'sonner';
 import { sendEmail } from "@/actions/sendEmail";
 import AnimateIn from "@/components/AnimateIn";
 import Container from "@/components/Container";
@@ -14,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Minus } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 
 type FormValues = {
@@ -49,6 +51,11 @@ export default function Contact() {
       console.error("Error sending email", error);
       alert("There was an error sending your message. Please try again.");
     }
+  };
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    toast.success(`${text} copied to clipboard`);
   };
 
   return (
@@ -136,7 +143,7 @@ export default function Contact() {
         </div>
 
         <Container className="flex gap-5 p-5 bg-[white]">
-          <div className="flex items-center">
+          <Link href={"https://wa.me/201221112378?text=Hi%20Etavelle%2C%20I%E2%80%99m%20interested%20in%20your%20web%20services"} target="_blank" className="flex items-center cursor-pointer">
             <Image
               alt="WhatsApp icon"
               src={'/icons/logos/whatsapp.svg'}
@@ -144,8 +151,8 @@ export default function Contact() {
               height={0}
               className="w-10 h-10 mr-3"
             />
-          </div>
-          <div className="flex items-center">
+          </Link>
+          <Link href={'https://www.linkedin.com/company/etavelle'} target="_blank" className="flex items-center cursor-pointer">
             <Image
               alt="LinkedIn icon"
               src={'/icons/logos/linkedin.svg'}
@@ -153,8 +160,8 @@ export default function Contact() {
               height={0}
               className="w-10 h-10 mr-3"
             />
-          </div>
-          <div className="flex items-center">
+          </Link>
+          <div className="flex items-center cursor-pointer" onClick={() => copyToClipboard("contact@etavelle.com")}>
             <Image
               alt="Email icon"
               src={'/icons/logos/email.svg'}
@@ -163,7 +170,7 @@ export default function Contact() {
               className="w-10 h-10 mr-3"
             />
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center cursor-pointer" onClick={() => copyToClipboard("+201221112378")}>
             <Image
               alt="Phone icon"
               src={'/icons/logos/phone.svg'}
