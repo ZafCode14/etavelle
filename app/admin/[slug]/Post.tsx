@@ -11,7 +11,7 @@ type Props = {
 export default function PostAdmin({ post }: Props) {
   return (
     <main className="mx-auto px-4 flex flex-col">
-      {post.hero_image.fileUrl &&
+      {post.hero_image?.fileUrl &&
       <Image
         src={post.hero_image.fileUrl}
         alt={post.hero_image.alt}

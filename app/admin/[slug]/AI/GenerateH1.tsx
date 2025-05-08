@@ -15,11 +15,15 @@ export default function GenerateH1({ title, setFormData }: Props) {
     if (!title) return;
 
     startTransition(async () => {
-      const response = await getH1andP(title);
-      setFormData(prev => ({
-        ...prev,
-        content: response,
-      }));
+      try {
+        const response = await getH1andP(title);
+        setFormData(prev => ({
+          ...prev,
+          content: response,
+        }));
+      } catch (error) {
+        console.error(error);
+      }
     });
   }
 

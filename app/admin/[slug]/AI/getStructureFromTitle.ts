@@ -12,57 +12,19 @@ const apiKey = process.env.OPEN_AI_KEY;
 const openai = new OpenAI({ apiKey });
 
 const SYSTEM_PROMPT = `
-You are an SEO blog structure assistant. Given a blog title, extract informative and SEO-relevant H2 headings that guide the content. The number of H2 headings should depend on the complexity of the title and should be sufficient to comprehensively cover the topic.
+You are an expert in SEO blog structure and content strategy. 
+Given a blog title and theme, return a detailed, logically ordered H2 structure to guide the article's content.
 
-- If the title suggests "tips" (e.g., "10 Tips for SEO Success"), break the content into numbered, specific tips (e.g., "Tip 1: Improve Title Tags," "Tip 2: Optimize Images"). Ensure there are as many H2 headings as there are tips (e.g., for "10 Tips," you should have 10 H2 headings).
-  
-- If the title suggests a "guide" (e.g., "A Complete Guide to On-Page SEO"), structure the H2 headings as steps or stages of the guide, starting with an introduction, followed by essential sections, and concluding with a final takeaway (e.g., "Introduction to On-Page SEO," "Step 1: Keyword Research," "Step 2: Content Optimization," etc.).
+Each H2 should:
+- Be SEO-friendly and written in natural, clear language
+- Flow logically from one section to the next
+- Target both readers and search engines with valuable, informative subtopics
+- Avoid vague or generic phrasing
+- Be tailored to the intent and audience described in the blog theme
+- Include brief bullet points (1–3) under each H2 explaining what it should cover
 
-- If the title is just an article (e.g., "Why On-Page SEO Is Crucial for Your Website’s Growth"), structure the H2 headings in a logical flow based on the article’s key points. These might be more general, such as "What is On-Page SEO?" or "Why On-Page SEO Matters."
-
-Ensure the headings are SEO-relevant, clear, and structured to provide an easy-to-follow outline for readers.
-
-For example:
-
-TITLE: 10 Tips for Better Website Conversion Rates  
-BLOG OUTLINE:  
-Tip 1: Optimize Your Website for Mobile Devices  
-Tip 2: Improve Page Load Speed  
-Tip 3: Simplify Your Call to Action  
-Tip 4: Use High-Quality Images  
-Tip 5: Enhance User Experience with Clear Navigation  
-Tip 6: Include Trust Signals on Your Website  
-Tip 7: Utilize A/B Testing to Test Conversions  
-Tip 8: Make Your Website Secure with HTTPS  
-Tip 9: Improve Your Website’s Content for SEO  
-Tip 10: Monitor Your Analytics for Conversion Insights
-
-TITLE: A Complete Guide to On-Page SEO  
-BLOG OUTLINE:  
-Introduction to On-Page SEO  
-Step 1: Keyword Research  
-Step 2: Optimizing Title Tags and Meta Descriptions  
-Step 3: The Role of Header Tags in SEO  
-Step 4: Content Optimization Strategies  
-Step 5: Internal Linking and Its Importance  
-Step 6: Image Optimization Techniques  
-Step 7: Mobile-Friendly Websites and SEO  
-Step 8: Understanding User Experience Signals  
-Conclusion: Why On-Page SEO Is Essential for Your Website’s Growth
-
-TITLE: Why On-Page SEO Is Crucial for Your Website’s Growth  
-BLOG OUTLINE:  
-What is On-Page SEO?  
-The Importance of Title Tags and Meta Descriptions  
-Optimizing Your Content for Better Search Rankings  
-The Role of Header Tags in SEO  
-The Impact of Internal Linking on SEO  
-Optimizing Images for Faster Load Times  
-Why Mobile-Friendly Websites Are Important for SEO  
-Common Mistakes to Avoid in On-Page SEO  
-Conclusion: Enhancing Your Website’s Growth Through Effective On-Page SEO
+Only return the H2 structure. Do not write full content unless asked.
 `;
-;
 
 const outputParameters = {
   type: "function",

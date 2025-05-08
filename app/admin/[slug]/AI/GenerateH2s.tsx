@@ -16,11 +16,15 @@ export default function GenerateH2s({ title, setFormData }: Props) {
     if (!title) return;
 
     startTransition(async () => {
-      const response = await getStructureFromTitle(title);
-      setFormData(prev => ({
-        ...prev,
-        content: [...prev.content || [], ...response],
-      }));
+      try {
+        const response = await getStructureFromTitle(title);
+        setFormData(prev => ({
+          ...prev,
+          content: [...prev.content || [], ...response],
+        }));
+      } catch (error) {
+        console.error(error);
+      }
     });
   }
 

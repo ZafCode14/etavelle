@@ -25,6 +25,7 @@ export default function GenerateFromH2({ h2, setFormData, index, allH2s }: Props
     if (!h2) return;
 
     startTransition(async () => {
+      try {
       const response: Content[] = await getContentFromFormData(passedArument);
 
       setFormData((prev) => {
@@ -37,6 +38,9 @@ export default function GenerateFromH2({ h2, setFormData, index, allH2s }: Props
           content: [...before, ...response, ...after],
         };
       });
+      } catch (error) {
+        console.error(error);
+      }
     });
   };
 

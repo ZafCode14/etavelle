@@ -16,7 +16,7 @@ export async function generateSitemap() {
 
   sitemap.write({
     url: '/blog',
-    changefreq: 'dayly',
+    changefreq: 'daily',
     priority: 0.7,
     lastmod: new Date().toISOString(),
   });

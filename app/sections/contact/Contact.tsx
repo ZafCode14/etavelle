@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Minus } from "lucide-react";
+import Image from "next/image";
 import { useForm } from "react-hook-form";
 
 type FormValues = {
@@ -60,8 +62,8 @@ export default function Contact() {
         </AnimateIn>
       </div>
 
-      <AnimateIn y={100} className="w-full flex justify-center">
-        <Container className="bg-[white] max-w-[95%]">
+      <AnimateIn y={100} className="w-full flex flex-col md:flex-row justify-center items-center gap-3">
+        <Container className="bg-[white] max-w-full">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col w-[400px] max-w-full px-2 py-5 rounded-md gap-4">
               <p className="leading-[16px] px-5 text-center mb-2 font-bold">
@@ -125,6 +127,51 @@ export default function Contact() {
               </Button>
             </form>
           </Form>
+        </Container>
+
+        <div className="flex flex-col md:flex-row justify-center gap-1 my-5">
+          <Minus className="rotate-90 md:rotate-0"/>
+          <p>OR</p>
+          <Minus className="rotate-90 md:rotate-0"/>
+        </div>
+
+        <Container className="flex gap-5 p-5 bg-[white]">
+          <div className="flex items-center">
+            <Image
+              alt="WhatsApp icon"
+              src={'/icons/logos/whatsapp.svg'}
+              width={0}
+              height={0}
+              className="w-10 h-10 mr-3"
+            />
+          </div>
+          <div className="flex items-center">
+            <Image
+              alt="LinkedIn icon"
+              src={'/icons/logos/linkedin.svg'}
+              width={0}
+              height={0}
+              className="w-10 h-10 mr-3"
+            />
+          </div>
+          <div className="flex items-center">
+            <Image
+              alt="Email icon"
+              src={'/icons/logos/email.svg'}
+              width={0}
+              height={0}
+              className="w-10 h-10 mr-3"
+            />
+          </div>
+          <div className="flex items-center">
+            <Image
+              alt="Phone icon"
+              src={'/icons/logos/phone.svg'}
+              width={0}
+              height={0}
+              className="w-10 h-10 mr-3"
+            />
+          </div>
         </Container>
       </AnimateIn>
     </section>
