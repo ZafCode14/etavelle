@@ -4,8 +4,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
   Dialog,
   DialogTrigger,
@@ -15,7 +13,6 @@ import {
 } from "@/components/ui/dialog";
 
 import { format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
 import { createNewProject } from "./actions";
 import { toast } from "sonner";
 
@@ -94,59 +91,33 @@ export default function CreateProject() {
           </div>
 
           {/* Start Date */}
-          <div className="flex flex-col space-y-2">
-            <Label>Start Date</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="justify-start text-left font-normal"
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {formData.start_date ? format(formData.start_date, "PPP") : "Pick a date"}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={formData.start_date ?? undefined}
-                  onSelect={(date) => {
-                    if (date) {
-                      setFormData((prev) => ({ ...prev, start_date: date }));
-                    }
-                  }}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
+          <div>
+            <Label htmlFor="start_date">Start Date</Label>
+            <Input
+              type="date"
+              id="start_date"
+              name="start_date"
+              value={formData.start_date ? format(formData.start_date, "yyyy-MM-dd") : ""}
+              onChange={(e) => {
+                const date = e.target.value ? new Date(e.target.value) : null;
+                setFormData((prev) => ({ ...prev, start_date: date }));
+              }}
+            />
           </div>
 
           {/* End Date */}
-          <div className="flex flex-col space-y-2">
-            <Label>End Date</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="justify-start text-left font-normal"
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {formData.end_date ? format(formData.end_date, "PPP") : "Pick a date"}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={formData.end_date ?? undefined}
-                  onSelect={(date) => {
-                    if (date) {
-                      setFormData((prev) => ({ ...prev, end_date: date }));
-                    }
-                  }}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
+          <div>
+            <Label htmlFor="end_date">End Date</Label>
+            <Input
+              type="date"
+              id="end_date"
+              name="end_date"
+              value={formData.end_date ? format(formData.end_date, "yyyy-MM-dd") : ""}
+              onChange={(e) => {
+                const date = e.target.value ? new Date(e.target.value) : null;
+                setFormData((prev) => ({ ...prev, end_date: date }));
+              }}
+            />
           </div>
 
           {/* Premium Checkbox */}
