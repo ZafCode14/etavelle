@@ -28,7 +28,7 @@ export default function Service({ icon, title, text }: Props) {
           height={0}
           className="w-auto h-[40px] lg:h-[3.7vw] xl:h-[44px] absolute left-5 top-4 object-contain"
         />
-        <h3 className="mb-5 self-center text-center mt-2">{title}</h3>
+        <h3 className="mb-5 self-center text-center mt-4 md:mt-2">{title}</h3>
         <p className="!text-[13px] md:!text-[1.6vw] lg:!text-[1.4vw] xl:!text-[16px]">{text}</p>
         <Plus className={`
           absolute top-6 right-5 text-[#178d9c]

@@ -4,6 +4,7 @@ import { logout } from './actions'
 import { createClient } from '@/utils/supabase/server';
 import CreatePostForm from './CreaatePostForm';
 import Posts from './Posts';
+import Link from 'next/link';
 
 export default async function AdminPage() {
   const supabase = await createClient();
@@ -16,6 +17,9 @@ export default async function AdminPage() {
 
   return (
     <main className='pt-20 flex flex-col max-w-4xl mx-auto'>
+      <Link href={'/admin/finance'}>
+        <Button>Finance</Button>
+      </Link>
       <Button variant="destructive" className='self-end mx-5' onClick={logout}>Log Out</Button>
       <h1>Admin Page</h1>
       <CreatePostForm/>
