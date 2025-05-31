@@ -1,5 +1,6 @@
 // app/api/sitemap/route.js
 import { generateSitemap } from '@/lib/sitemap';
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   const sitemap = await generateSitemap();
