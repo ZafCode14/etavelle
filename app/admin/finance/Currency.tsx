@@ -28,10 +28,11 @@ export default function Currency() {
   }, [currency, dispatch]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-2">
+    <div className="flex flex-wrap gap-2">
       <Button size="sm" variant={currency !== "USD" ? "outline" : "default"} onClick={() => dispatch(setCurrency({currency: "USD"}))}>USD</Button>
       <Button size="sm" variant={currency !== "EUR" ? "outline" : "default"} onClick={() => dispatch(setCurrency({currency: "EUR"}))}>EUR</Button>
       <Button size="sm" variant={currency !== "EGP" ? "outline" : "default"} onClick={() => dispatch(setCurrency({currency: "EGP"}))}>EGP</Button>
+      <Button size="sm" variant={currency !== "RUB" ? "outline" : "default"} onClick={() => dispatch(setCurrency({currency: "RUB"}))}>RUB</Button>
     </div>
   )
 }

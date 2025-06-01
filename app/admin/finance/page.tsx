@@ -34,7 +34,7 @@ export default async function Finance() {
           <div className="w-[1200px] max-w-full mx-auto px-3">
             <div className="flex justify-between">
               <div className="flex items-center">
-                <h1 className="font-bold mr-10">Finances</h1>
+                <h1 className="font-bold mr-3 md:mr-10">Finances</h1>
                 <Currency/>
               </div>
               <div className="flex flex-col md:flex-row gap-2">
