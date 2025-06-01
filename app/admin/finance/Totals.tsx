@@ -68,7 +68,7 @@ export default function Totals({ payments }: Props) {
 
   return (
     <Carousel
-      className="w-full"
+      className="w-full mt-5"
       opts={{
         startIndex: monthsArray.length,
         slidesToScroll: 1,
@@ -87,7 +87,7 @@ export default function Totals({ payments }: Props) {
                 <h3 className="text-[green]">{gains}</h3>
                 <h3 className="text-[red]">{expences}</h3>
               </div>
-              <h2>{total} {currency}</h2>
+              <h2 className="mb-0">{total} {currency}</h2>
             </CarouselItem>
           );
         })}
@@ -97,7 +97,7 @@ export default function Totals({ payments }: Props) {
             <h3 className="text-[green]">{last12MonthsFinance.gains}</h3>
             <h3 className="text-[red]">{last12MonthsFinance.expences}</h3>
           </div>
-          <h2>{last12MonthsFinance.total} {currency}</h2>
+          <h2 className="!mb-0">{last12MonthsFinance.total} {currency}</h2>
         </CarouselItem>
       </CarouselContent>
       <CarouselPrevious className="absolute left-0 top-1" variant={'ghost'} />

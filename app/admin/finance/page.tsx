@@ -33,18 +33,13 @@ export default async function Finance() {
         <div className="fixed top-0 right-0 pt-16 z-10 backdrop-blur-2xl w-full">
           <div className="w-[1200px] max-w-full mx-auto px-3">
             <div className="flex justify-between">
-              <div className="flex items-center">
-                <h1 className="font-bold mr-3 md:mr-10">Finances</h1>
-                <Currency/>
-              </div>
+              <Currency/>
               <div className="flex flex-col md:flex-row gap-2">
                 <AddNewPayment projects={projects}/>
                 <CreateProject/>
               </div>
             </div>
-            <div className="flex justify-between mt-5">
-              <Totals payments={payments}/>
-            </div>
+            <Totals payments={payments}/>
           </div>
         </div>
 

@@ -35,7 +35,7 @@ export default function Payments({ payments }: Props) {
   }
 
   return (
-    <div className="flex flex-col gap-2 flex-1 h-full overflow-y-auto pt-60 pb-10 scrollbar-hide">
+    <div className="flex flex-col gap-2 flex-1 h-full overflow-y-auto pt-56 pb-10 scrollbar-hide">
       {filteredPayments.map((payment, index) => (
         <Payment
           key={index}
