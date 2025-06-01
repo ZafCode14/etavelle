@@ -27,11 +27,12 @@ export default function Project({ project, payments }: Props) {
   const dispatch = useDispatch();
   const projectName = useSelector((state: RootState) => state.filter.projectName);
   const currency = useSelector((state: RootState) => state.filter.currency);
+  const rates = useSelector((state: RootState) => state.filter.rates);
 
   const amountSum =
     payments
       ?.filter((payment) => payment.project_id === project.id)
-      .map((payment) => Number(getRateAmount(currency, payment)))
+      .map((payment) => Number(getRateAmount(currency, payment, rates)))
       .reduce((sum, amount) => sum + amount, 0) ?? 0;
 
 

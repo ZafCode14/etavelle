@@ -21,13 +21,15 @@ type Props = {
 export default function Totals({ payments }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const currency = useSelector((state: RootState) => state.filter.currency);
+  const rates = useSelector((state: RootState) => state.filter.rates);
+
   const [api, setApi] = useState<CarouselApi | null>(null);
   const dispatch = useDispatch();
 
   const [monthsArray, setMonthsArray] = useState<{ month: string; year: string }[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const last12MonthsFinance = getFinanceOfLast12Months(payments, currency);
+  const last12MonthsFinance = getFinanceOfLast12Months(payments, currency, rates);
 
   useEffect(() => {
     const loadMonths = async () => {
@@ -76,7 +78,7 @@ export default function Totals({ payments }: Props) {
     >
       <CarouselContent className="pl-50 md:pl-170 lg:pl-240 pr-0">
         {monthsArray.map((month, index) => {
-          const { total, expences, gains } = getFinanceOfMonth(payments, month, currency);
+          const { total, expences, gains } = getFinanceOfMonth(payments, month, currency, rates);
 
           return (
             <CarouselItem key={index} className={`basis-40 md:basis-70 ${currentIndex === index ? "" : "opacity-50 scale-60"} transition duration-300`}>

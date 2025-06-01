@@ -48,7 +48,7 @@ export default async function Finance() {
           </div>
         </div>
 
-        <div className="fixed w-full h-screen top-0 right-0">
+        <div className="fixed w-full h-screen top-0 right-0 pt-5">
           <div className="w-[1200px] max-w-full mx-auto flex gap-2 px-3 h-full">
             <div className="hidden md:flex flex-col gap-2 flex-1 pt-60">
             {projects?.map((project, index) => 

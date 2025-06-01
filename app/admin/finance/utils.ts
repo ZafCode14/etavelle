@@ -1,26 +1,14 @@
 import { Payment, Project } from "./types";
 
-export const getRateAmount = (currency: string, payment: Payment) => {
-  const rate = 50.5
-  if (currency === "USD") {
-    if (payment.currency === "USD") {
-      return payment.amount;
-    } else if (payment.currency === "EGP") {
-      return (payment.amount / rate).toFixed(2);
-    }
-  } else if (currency === "EGP") {
-    if (payment.currency === "USD") {
-      return (payment.amount * rate).toFixed(2);
-    } else if (payment.currency === "EGP"){
-      return payment.amount
-    }
-  }
+export const getRateAmount = (currency: string, payment: Payment , rates: {[key: string]: number}) => {
+  return (payment.amount / rates[payment.currency]).toFixed(2);
 }
 
 export const getFinanceOfMonth = (
   payments: Payment[], 
   month: { year: string; month: string }, 
-  currency: string
+  currency: string,
+  rates: { [key: string]: number }
 ) => {
   let total = 0;
   let expenses = 0;
@@ -29,7 +17,7 @@ export const getFinanceOfMonth = (
   payments.forEach((payment) => {
     const [year, monthStr] = payment.created_at.split("-");
     if (year === month.year && monthStr === month.month) {
-      const amount = Number(getRateAmount(currency, payment));
+      const amount = Number(getRateAmount(currency, payment, rates));
       total += amount;
       if (amount > 0) gains += amount;
       else if (amount < 0) expenses += amount;
@@ -45,7 +33,8 @@ export const getFinanceOfMonth = (
 
 export const getFinanceOfLast12Months = (
   payments: Payment[], 
-  currency: string
+  currency: string,
+  rates: { [key: string]: number }
 ) => {
   const now = new Date();
   const last12Months: {month: string, year: string}[] = [];
@@ -67,7 +56,7 @@ export const getFinanceOfLast12Months = (
       (m) => m.month === month && m.year === year
     );
     if (match) {
-      const amount = Number(getRateAmount(currency, payment));
+      const amount = Number(getRateAmount(currency, payment, rates));
       total += amount;
       if (amount > 0) gains += amount;
       else if (amount < 0) expenses += amount;

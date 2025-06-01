@@ -24,6 +24,7 @@ type Props = {
 
 export default function Payment({ payment, projectName }: Props) {
   const [open, setOpen] = useState(false);
+
   const [formData, setFormData] = useState({
     type: payment.type,
     amount: payment.amount,
@@ -49,6 +50,7 @@ export default function Payment({ payment, projectName }: Props) {
   }, [open, payment]);
 
   const currency = useSelector((state: RootState) => state.filter.currency);
+  const rates = useSelector((state: RootState) => state.filter.rates);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -84,7 +86,7 @@ export default function Payment({ payment, projectName }: Props) {
             <div className="flex justify-between items-center cursor-pointer">
               <div>
                 <div className="flex items-center">
-                  <p className="font-bold w-24">{payment.type}</p>
+                  <p className="font-bold w-24 md:w-auto">{payment.type}</p>
                   {projectName &&
                   <p className="!text-[10px] ml-3">({projectName})</p>
                   }
@@ -95,8 +97,8 @@ export default function Payment({ payment, projectName }: Props) {
               </div>
               <div className="text-right">
                 {payment.currency === currency ?
-                  <p>{getRateAmount(currency, payment)} {currency}</p> :
-                  <p><span className="text-sm">{payment.amount} {payment.currency}</span> {getRateAmount(currency, payment)} {currency}</p>
+                  <p>{getRateAmount(currency, payment, rates)} {currency}</p> :
+                  <p><span className="text-sm">{payment.amount} {payment.currency}</span> {getRateAmount(currency, payment, rates)} {currency}</p>
                 }
                 <p className="!text-sm">
                   {formatDate(payment.created_at)}

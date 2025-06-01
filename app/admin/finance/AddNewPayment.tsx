@@ -64,8 +64,6 @@ export default function AddNewPayment({ projects }: Props) {
     setOpen(false);
   };
 
-  console.log(formData);
-
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>

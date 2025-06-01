@@ -6,7 +6,7 @@ const initialState = {
   month: '',
   currency: 'USD',
   projectName: '',
-  rate: 0
+  rates: {}
 };
 
 const pageSlice = createSlice({
@@ -23,11 +23,11 @@ const pageSlice = createSlice({
     setProjectName: (state, action: PayloadAction<{projectName: string}>) => {
       state.projectName = action.payload.projectName;
     },
-    setRate: (state, action: PayloadAction<{rate: number}>) => {
-      state.rate = action.payload.rate;
+    setRates: (state, action: PayloadAction<{ [key: string]: number }>) => {
+      state.rates = action.payload;
     }
   },
 });
 
-export const { setDateFilter, setCurrency, setProjectName, setRate } = pageSlice.actions;
+export const { setDateFilter, setCurrency, setProjectName, setRates } = pageSlice.actions;
 export default pageSlice.reducer;
