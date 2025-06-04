@@ -7,9 +7,9 @@ import Image from "next/image";
 export default function Projects() {
   const projects = [
     {
-      title: "Towns And Seas",
-      link: "https://www.townsandseas.com/",
-      image: "/images/projects/townsandseas.jpg"
+      title: "TGG",
+      link: "https://www.tggsolutions.co/",
+      image: "/images/projects/tgg.jpg"
     },
     {
       title: "Blackeels",
@@ -25,11 +25,6 @@ export default function Projects() {
       title: "Bravo",
       link: "https://www.bravo-link.com/en",
       image: "/images/projects/bravo.jpg"
-    },
-    {
-      title: "Felofarms",
-      link: "https://www.felofarms.com/",
-      image: "/images/projects/felofarms.jpg"
     },
     {
       title: "Golverd",
