@@ -17,9 +17,14 @@ export default async function AdminPage() {
 
   return (
     <main className='pt-20 flex flex-col max-w-4xl mx-auto'>
-      <Link href={'/admin/finance'}>
-        <Button>Finance</Button>
-      </Link>
+      <div className='flex gap-3'>
+        <Link href={'/admin/finance'}>
+          <Button>Finance</Button>
+        </Link>
+        <Link href={'/admin/leads'}>
+          <Button>Leads</Button>
+        </Link>
+      </div>
       <Button variant="destructive" className='self-end mx-5' onClick={logout}>Log Out</Button>
       <h1>Admin Page</h1>
       <CreatePostForm/>

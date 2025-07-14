@@ -115,11 +115,13 @@ export function formatDate(input: string) {
 
 export function getMonthsSinceLastSubscription(project: Project, startDate: string): number {
   const latestUntil = project.payments.reduce((latest, payment) => {
-    if (payment.type === "Subscription" && payment.until) {
+    if (payment.until) {
       return (!latest || new Date(payment.until) > new Date(latest)) ? payment.until : latest;
     }
     return latest;
   }, null as string | null);
+
+  console.log(project.payments);
 
   if (!latestUntil) return 0;
 

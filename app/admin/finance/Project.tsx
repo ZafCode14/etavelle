@@ -52,7 +52,7 @@ export default function Project({ project, payments }: Props) {
   }
 
 
-const months = getMonthsSinceLastSubscription(project, new Date().toISOString());
+  const months = getMonthsSinceLastSubscription(project, new Date().toISOString());
 
   return (
     <div onClick={toggleProject} onDoubleClick={() => setEdit(true)} className={`
