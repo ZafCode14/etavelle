@@ -20,6 +20,7 @@ export default function EmailSend({ name }: Props) {
   const [loading, setLoading] = useState(false);
 
   const handleSend = async () => {
+
     setLoading(true);
 
     const htmlMessage = `
