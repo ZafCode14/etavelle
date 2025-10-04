@@ -91,7 +91,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center space-x-2 text-sm">
             <Mail className="text-black w-5 h-5"/>
-            <span>contact@etavelle.com</span>
+            <span>misha@etavelle.com</span>
           </div>
           <div className="flex items-center space-x-2 text-sm">
             <MapPin className="text-black w-5 h-5"/>
