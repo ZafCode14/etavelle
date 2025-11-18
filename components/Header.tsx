@@ -41,7 +41,6 @@ export default function Header() {
       w-full h-[70px]
       text-black
       transition-colors duration-300 px-3 
-      ${p === "/" && "backdrop-blur-lg"}
     `}>
       <AnimateIn className="
         flex justify-end items-center 

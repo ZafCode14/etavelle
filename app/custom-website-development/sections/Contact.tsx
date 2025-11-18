@@ -60,22 +60,11 @@ export default function Contact() {
 
   return (
     <section className="flex flex-col items-center bg-[#F7F7FD] py-20 rounded-3xl px-3" id="contact">
-      <div className="w-[700px] max-w-full mb-10 text-center">
-        <AnimateIn y={100}>
-          <h2>Let’s Bring Your Vision to Life</h2>
-        </AnimateIn>
-        <AnimateIn y={100}>
-          <p>Have questions or ready to start your high-performance website project? Let’s make your business stand out online with Etavelle’s expert team.</p>
-        </AnimateIn>
-      </div>
-
       <AnimateIn y={100} className="w-full flex flex-col md:flex-row justify-center items-center gap-3">
         <Container className="bg-[white] max-w-full">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col w-[400px] max-w-full px-2 py-5 rounded-md gap-4">
-              <p className="leading-[16px] px-5 text-center mb-2 font-bold">
-                Fill out the form below to start your journey to online success!
-              </p>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col w-[400px] max-w-full px-2 py-5 rounded-md gap-4 ">
+              <h2 className='text-center !text-2xl'>Contact Us and Get <br />Your Custom Website</h2>
 
               <FormField
                 control={form.control}
@@ -109,7 +98,7 @@ export default function Contact() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input autoComplete="true" type="email" placeholder="Email" {...field} className="text-sm" required/>
+                      <Input autoComplete="true" type="email" placeholder="Email" {...field} className="text-sm"  required/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>

@@ -7,7 +7,7 @@ export default function Services(){
   const services = [
     {
       icon: "/icons/services/webDevelopment.svg",
-      title: "Web Development",
+      title: "Custom Web Development",
       text: "We build fast, scalable websites using modern frameworks like Next.js, ensuring clean code, responsive layouts, and top-tier performance. Every project is optimized for SEO, usability, and future scalability."
     },
     {

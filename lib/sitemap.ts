@@ -14,6 +14,14 @@ export async function generateSitemap() {
     lastmod: new Date().toISOString(),
   });
 
+  // Static pages
+  sitemap.write({
+    url: '/custom-website-development',
+    changefreq: 'weekly',
+    priority: 1.0,
+    lastmod: new Date().toISOString(),
+  });
+
   sitemap.write({
     url: '/blog',
     changefreq: 'daily',

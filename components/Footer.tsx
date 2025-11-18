@@ -33,6 +33,7 @@ export default function Footer() {
           </p>
           <div className="flex space-x-2 pt-2">
             {/* social icons */}
+            {/**
             <Link href={'https://www.linkedin.com/company/etavelle'} target="_blank">
               <Button variant="outline" className="rounded-full w-11 h-11 p-2 border-transparent bg-transparent">
                 <Image
@@ -44,6 +45,7 @@ export default function Footer() {
                 />
               </Button>
             </Link>
+             */}
             <Link href={"https://wa.me/201221112378?text=Hi%20Etavelle%2C%20I%E2%80%99m%20interested%20in%20your%20web%20services"} target="_blank">
               <Button variant="outline" className="rounded-full w-11 h-11 p-2 border-transparent bg-transparent">
                 <Image
