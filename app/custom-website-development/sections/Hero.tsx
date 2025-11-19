@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section id="hero" className="pt-14 md:pt-20 md:h-[600px] relative">
       <Image
-        alt="hero image" 
+        alt="custom website development" 
         src={'/images/customwebsitedevelopment.png'}
         width={1000}
         height={616}
