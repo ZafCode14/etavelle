@@ -141,8 +141,7 @@ export default function Contact() {
               className="w-10 h-10 mr-3"
             />
           </Link>
-          {/**
-          <Link href={'https://www.linkedin.com/company/etavelle'} target="_blank" className="flex items-center cursor-pointer">
+          <Link href={'www.linkedin.com/in/misha-zaafarani'} target="_blank" className="flex items-center cursor-pointer">
             <Image
               alt="LinkedIn icon"
               src={'/icons/logos/linkedin.svg'}
@@ -151,7 +150,6 @@ export default function Contact() {
               className="w-10 h-10 mr-3"
             />
           </Link>
-           */}
           <div className="flex items-center cursor-pointer" onClick={() => copyToClipboard("misha@etavelle.com")}>
             <Image
               alt="Email icon"
