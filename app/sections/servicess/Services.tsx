@@ -2,13 +2,15 @@ import MovingStripe from "@/components/MovingStripe";
 import Service from "./Service";
 import GraphicalElement from "../whyEtavelle/GraphicalElement";
 import AnimateIn from "@/components/AnimateIn";
+import Link from "next/link";
 
 export default function Services(){
   const services = [
     {
       icon: "/icons/services/webDevelopment.svg",
       title: "Custom Web Development",
-      text: "We build fast, scalable websites using modern frameworks like Next.js, ensuring clean code, responsive layouts, and top-tier performance. Every project is optimized for SEO, usability, and future scalability."
+      text: "We build fast, scalable websites using modern frameworks like Next.js, ensuring clean code, responsive layouts, and top-tier performance. Every project is optimized for SEO, usability, and future scalability.",
+      link: "/custom-website-development"
     },
     {
       icon: "/icons/services/seoOptimization.svg",
@@ -64,11 +66,21 @@ export default function Services(){
         {services.map((service, index) => {
           return (
             <AnimateIn y={100} key={index} className="basis-[100%] md:basis-[47%] lg:basis-[30%]">
-              <Service
-                icon={service.icon}
-                title={service.title}
-                text={service.text}
-              />
+              {service.link ?
+                <Link href={service.link}>
+                  <Service
+                    icon={service.icon}
+                    title={service.title}
+                    text={service.text}
+                  />
+                </Link>
+                :
+                <Service
+                  icon={service.icon}
+                  title={service.title}
+                  text={service.text}
+                />
+              }
             </AnimateIn>
           )
         })}

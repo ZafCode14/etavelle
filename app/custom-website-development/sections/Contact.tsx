@@ -59,7 +59,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="flex flex-col items-center bg-[#F7F7FD] py-20 rounded-3xl px-3" id="contact">
+    <section className="flex flex-col items-center py-20 rounded-3xl px-3" id="contact">
       <AnimateIn y={100} className="w-full flex flex-col md:flex-row justify-center items-center gap-3">
         <Container className="bg-[white] max-w-full">
           <Form {...form}>
@@ -141,7 +141,7 @@ export default function Contact() {
               className="w-10 h-10 mr-3"
             />
           </Link>
-          <Link href={'www.linkedin.com/in/misha-zaafarani'} target="_blank" className="flex items-center cursor-pointer">
+          <Link href={'https://www.linkedin.com/in/misha-zaafarani'} target="_blank" className="flex items-center cursor-pointer">
             <Image
               alt="LinkedIn icon"
               src={'/icons/logos/linkedin.svg'}
