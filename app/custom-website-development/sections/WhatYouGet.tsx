@@ -30,6 +30,7 @@ export default function WhatYouGet() {
       text: 'Optional integrations (CRM, analytics, booking, e-commerce)'
     },
   ]
+
   return (
     <section className="bg-[#F7F7FD] px-3 py-20 rounded-3xl flex flex-col items-center w-full overflow-hidden">
       <GraphicalElement
