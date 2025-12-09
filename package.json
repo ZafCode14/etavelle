@@ -30,11 +30,11 @@
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.7.3",
     "lucide-react": "^0.487.0",
-    "next": "15.3.0",
+    "next": "^16.0.8",
     "nodemailer": "^6.10.1",
     "openai": "^4.95.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "react-hook-form": "^7.55.0",
     "react-redux": "^9.2.0",
     "sitemap": "^8.0.0",
@@ -47,13 +47,13 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^24.10.2",
     "@types/nodemailer": "^6.4.17",
-    "@types/react": "^19",
+    "@types/react": "^19.2.7",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5.9.3"
   }
 }
